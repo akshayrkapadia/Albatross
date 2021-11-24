@@ -157,10 +157,11 @@ class Player_Profile:
 	def compare(self, model_profile):
 		
 		fairways_hit_percent_comp = round(self.fairways_hit_percentage - model_profile.fairways_hit_percentage, 2)
-		fairways_hit_comp = round((fairways_hit_percent_comp / 100) * 18, 2)
+		fairways_hit_comp = round((fairways_hit_percent_comp / 100) * 14, 2)
 		greens_in_regulation_percent_comp = round(self.greens_in_regulation_percentage - model_profile.greens_in_regulation_percentage, 2)
 		greens_in_regulation_comp = round((greens_in_regulation_percent_comp / 100) * 18, 2)
 		scrambling_percent_comp = round(self.scrambling_percentage - model_profile.scrambling_percentage, 2)
+		print(self.scrambling_percentage, self.greens_in_regulation_percentage)
 		scrambling_comp = round( (scrambling_percent_comp / 100) * (((100 - self.greens_in_regulation_percentage) / 100) * 18), 2)
 		putts_comp = round(self.putts_per_round - model_profile.putts_per_round, 2)
 		score_comp = round(self.scoring_average - model_profile.scoring_average, 2)
