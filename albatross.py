@@ -22,32 +22,40 @@ class Round:
 	
 		print("\nRound", self.round_number)
 		
-		if self.score < 72:
+		if self.score <= 71:
 			print(f"Score: {Fore.GREEN}" + str(self.score) + f"{Style.RESET_ALL}")
-		elif self.score > 72:
+		elif self.score > 74:
 			print(f"Score: {Fore.RED}" + str(self.score) + f"{Style.RESET_ALL}")
 		else:
 			print(f"Score: {Fore.YELLOW}" + str(self.score) + f"{Style.RESET_ALL}")
 		
 		if round(self.fairways_hit / self.fairways_possible, 2) >= .58:
 					print(f"Driving Accuracy: {Fore.GREEN}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
-		else:
+		elif round(self.fairways_hit / self.fairways_possible, 2) < .53:
 			print(f"Driving Accuracy: {Fore.RED}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
+		else:
+			print(f"Driving Accuracy: {Fore.YELLOW}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
 		
 		if round(self.greens_in_regulation / 18, 2) >= .65:
 			print(f"Greens In Regulation: {Fore.GREEN}" + str(self.greens_in_regulation) + f"/18 {Style.RESET_ALL}({Fore.GREEN}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
-		else:
+		elif round(self.greens_in_regulation / 18, 2) < .60:
 			print(f"Greens In Regulation: {Fore.RED}" + str(self.greens_in_regulation) + f"/18 {Style.RESET_ALL}({Fore.RED}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
+		else:
+			print(f"Greens In Regulation: {Fore.YELLOW}" + str(self.greens_in_regulation) + f"/18 {Style.RESET_ALL}({Fore.YELLOW}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
 		
 		if round(self.up_and_downs / (18 - self.greens_in_regulation), 2) >= .57:
 			print(f"Scrambling: {Fore.GREEN}" + str(self.up_and_downs) + "/" + str(18 - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
-		else:
+		elif round(self.up_and_downs / (18 - self.greens_in_regulation), 2) < .52:
 			print(f"Scrambling: {Fore.RED}" + str(self.up_and_downs) + "/" + str(18 - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
+		else:
+			print(f"Scrambling: {Fore.YELLOW}" + str(self.up_and_downs) + "/" + str(18 - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
 		
 		if self.putts <= 29:
 			print(f"Putts: {Fore.GREEN}" + str(self.putts) + f"{Style.RESET_ALL}")
-		else:
+		elif self.putts > 32:
 			print(f"Putts: {Fore.RED}" + str(self.putts) + f"{Style.RESET_ALL}")	
+		else:
+			print(f"Putts: {Fore.YELLOW}" + str(self.putts) + f"{Style.RESET_ALL}")	
 
 class Model_Profile:
 
@@ -73,23 +81,31 @@ class Model_Profile:
 		
 		if self.fairways_hit_percentage >= .58:
 					print(f"Fairways: {Fore.GREEN}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL}")
-		else:
+		elif self.fairways_hit_percentage < .53:
 					print(f"Fairways: {Fore.RED}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL}")
-		
+		else:
+			print(f"Fairways: {Fore.YELLOW}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL}")
+			
 		if self.greens_in_regulation_percentage >= .65:
 			print(f"Greens In Regulation: {Fore.GREEN}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL}")
-		else:
+		elif self.greens_in_regulation_percentage < .60:
 			print(f"Greens In Regulation: {Fore.RED}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL}")
+		else:
+			print(f"Greens In Regulation: {Fore.YELLOW}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL}")
 		
 		if self.scrambling_percentage >= .57:
 			print(f"Scrambling: {Fore.GREEN}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL}")
-		else:
+		elif self.scrambling_percentage < .52:
 			print(f"Scrambling: {Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL}")
+		else:
+			print(f"Scrambling: {Fore.YELLOW}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL}")
 		
 		if self.putts_per_round <= 29:
 			print(f"Putting Average: {Fore.GREEN}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round")
-		else:
+		elif self.putts_per_round > 32:
 			print(f"Putting Average: {Fore.RED}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round")
+		else:
+			print(f"Putting Average: {Fore.YELLOW}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round")
 
 
 class Player_Profile:			
@@ -145,7 +161,7 @@ class Player_Profile:
 		greens_in_regulation_percent_comp = round(self.greens_in_regulation_percentage - model_profile.greens_in_regulation_percentage, 2)
 		greens_in_regulation_comp = round((greens_in_regulation_percent_comp / 100) * 18, 2)
 		scrambling_percent_comp = round(self.scrambling_percentage - model_profile.scrambling_percentage, 2)
-		scrambling_comp = round( (scrambling_percent_comp / 100) * (((self.greens_in_regulation_percentage - 100) / 100) * 18), 2)
+		scrambling_comp = round( (scrambling_percent_comp / 100) * (((100 - self.greens_in_regulation_percentage) / 100) * 18), 2)
 		putts_comp = round(self.putts_per_round - model_profile.putts_per_round, 2)
 		score_comp = round(self.scoring_average - model_profile.scoring_average, 2)
 		
@@ -155,31 +171,40 @@ class Player_Profile:
 		
 		print("\nYou vs " + str(model_profile.name) + " (On Average)")
 		fairways_hit_percent_comp, fairways_hit_comp, greens_in_regulation_percent_comp, greens_in_regulation_comp, scrambling_percent_comp, scrambling_comp, putts_comp, score_comp = self.compare(model_profile)
-		
-		if fairways_hit_comp >= 0:
-			print(f"Fairways: You Hit {Fore.GREEN}" + str(abs(fairways_hit_comp)) + " (" + str(abs(fairways_hit_percent_comp)) + f"%){Style.RESET_ALL} More Fairways")
+		if fairways_hit_percent_comp >= 0:
+			print(f"Driving Accuracy: You Hit {Fore.GREEN}" + str(abs(fairways_hit_comp)) + " (" + str(abs(fairways_hit_percent_comp)) + f"%){Style.RESET_ALL} More Fairways Per Round")
+		elif fairways_hit_percent_comp < -5:
+			print(f"Driving Accuracy: You Hit {Fore.RED}" + str(abs(fairways_hit_comp)) + " (" + str(abs(fairways_hit_percent_comp)) + f"%){Style.RESET_ALL} Less Fairways Per Round")
 		else:
-			print(f"Fairways: You Hit {Fore.RED}" + str(abs(fairways_hit_comp)) + " (" + str(abs(fairways_hit_percent_comp)) + f"%){Style.RESET_ALL} Less Fairways")
+			print(f"Driving Accuracy: You Hit {Fore.YELLOW}" + str(abs(fairways_hit_comp)) + " (" + str(abs(fairways_hit_percent_comp)) + f"%){Style.RESET_ALL} Less Fairways Per Round")
 		
-		if greens_in_regulation_comp >= 0:
-			print(f"Greens In Regulation: You Hit {Fore.GREEN}" + str(abs(greens_in_regulation_comp)) + " (" + str(abs(greens_in_regulation_percent_comp)) + f"%){Style.RESET_ALL} More Greens")
+		if greens_in_regulation_percent_comp >= 0:
+			print(f"Greens In Regulation: You Hit {Fore.GREEN}" + str(abs(greens_in_regulation_comp)) + " (" + str(abs(greens_in_regulation_percent_comp)) + f"%){Style.RESET_ALL} More Greens Per Round")
+		elif greens_in_regulation_percent_comp < -5:
+			print(f"Greens In Regulation: You Hit {Fore.RED}" + str(abs(greens_in_regulation_comp)) + " (" + str(abs(greens_in_regulation_percent_comp)) + f"%){Style.RESET_ALL} Less Greens Per Round")
 		else:
-			print(f"Greens In Regulation: You Hit {Fore.RED}" + str(abs(greens_in_regulation_comp)) + " (" + str(abs(greens_in_regulation_percent_comp)) + f"%){Style.RESET_ALL} Less Greens")
+			print(f"Greens In Regulation: You Hit {Fore.YELLOW}" + str(abs(greens_in_regulation_comp)) + " (" + str(abs(greens_in_regulation_percent_comp)) + f"%){Style.RESET_ALL} Less Greens Per Round")
 		
-		if scrambling_comp <= 0:
-			print(f"Scrambling: You Made {Fore.GREEN}" + str(abs(scrambling_comp)) + " (" + str(abs(scrambling_percent_comp)) + f"%){Style.RESET_ALL} More Up & Downs")
+		if scrambling_percent_comp >= 0:
+			print(f"Scrambling: You Made {Fore.GREEN}" + str(abs(scrambling_comp)) + " (" + str(abs(scrambling_percent_comp)) + f"%){Style.RESET_ALL} More Up & Downs Per Round")
+		elif scrambling_percent_comp < -5:
+			print(f"Scrambling: You Made {Fore.RED}" + str(abs(scrambling_comp)) + " (" + str(abs(scrambling_percent_comp)) + f"%){Style.RESET_ALL} Less Up & Downs Per Round")
 		else:
-			print(f"Scrambling: You Made {Fore.RED}" + str(abs(scrambling_comp)) + " (" + str(abs(scrambling_percent_comp)) + f"%){Style.RESET_ALL} Less Up & Downs")
+			print(f"Scrambling: You Made {Fore.RED}" + str(abs(scrambling_comp)) + " (" + str(abs(scrambling_percent_comp)) + f"%){Style.RESET_ALL} Less Up & Downs Per Round")
 		
 		if putts_comp <= 0:
 			print(f"Putts: You Made {Fore.GREEN}" + str(abs(putts_comp)) + f"{Style.RESET_ALL} More Putts Per Round")
-		else:
+		elif putts_comp > 3:
 			print(f"Putts: You Made {Fore.RED}" + str(abs(putts_comp)) + f"{Style.RESET_ALL} Less Putts Per Round")
+		else:
+			print(f"Putts: You Made {Fore.YELLOW}" + str(abs(putts_comp)) + f"{Style.RESET_ALL} Less Putts Per Round")
 		
 		if score_comp <= 0:
 			print(f"Scoring Average: You Had {Fore.GREEN}" + str(abs(score_comp)) + f"{Style.RESET_ALL} Less Strokes Per Round")
-		else:
+		elif score_comp > 3:
 			print(f"Scoring Average: You Had {Fore.RED}" + str(abs(score_comp)) + f"{Style.RESET_ALL} More Strokes Per Round")
+		else:
+			print(f"Scoring Average: You Had {Fore.YELLOW}" + str(abs(score_comp)) + f"{Style.RESET_ALL} More Strokes Per Round")
 	
 	
 	def print_stats_str(self):
@@ -187,32 +212,40 @@ class Player_Profile:
 		print("\nYour Stats")
 		print("Rounds Played:", self.total_rounds)
 		
-		if self.scoring_average < 72:
+		if self.scoring_average <= 71:
 			print(f"Scoring Average: {Fore.GREEN}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
-		elif self.scoring_average > 72:
+		elif self.scoring_average > 74:
 			print(f"Scoring Average: {Fore.RED}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
 		else:
 			print(f"Scoring Average: {Fore.YELLOW}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
 		
 		if round(self.fairways_hit / self.fairways_possible, 2) >= .58:
-					print(f"Fairways: {Fore.GREEN}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
+					print(f"Driving Accuracy: {Fore.GREEN}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
+		elif round(self.fairways_hit / self.fairways_possible, 2) < .53:
+			print(f"Driving Accuracy: {Fore.RED}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
 		else:
-			print(f"Fairways: {Fore.RED}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
-		
+			print(f"Driving Accuracy: {Fore.YELLOW}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
+			
 		if round(self.greens_in_regulation / (18 * self.total_rounds), 2) >= .65:
 			print(f"Greens In Regulation: {Fore.GREEN}" + str(self.greens_in_regulation) + "/" + str(18 *self.total_rounds) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
-		else:
+		elif round(self.greens_in_regulation / (18 * self.total_rounds), 2) < .60:
 			print(f"Greens In Regulation: {Fore.RED}" + str(self.greens_in_regulation) + "/" + str(18 *self.total_rounds) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
+		else:
+			print(f"Greens In Regulation: {Fore.YELLOW}" + str(self.greens_in_regulation) + "/" + str(18 *self.total_rounds) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
 		
 		if round(self.up_and_downs / ((18 * self.total_rounds) - self.greens_in_regulation), 2) >= .57:
 			print(f"Scrambling: {Fore.GREEN}" + str(self.up_and_downs) + "/" + str((18 * self.total_rounds)- self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
+		elif round(self.up_and_downs / ((18 * self.total_rounds) - self.greens_in_regulation), 2) < .52:
+			print(f"Scrambling: {Fore.RED}" + str(self.up_and_downs) + "/" + str((18 * self.total_rounds) - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
 		else:
 			print(f"Scrambling: {Fore.RED}" + str(self.up_and_downs) + "/" + str((18 * self.total_rounds) - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
 		
-		if self.putts <= 29:
+		if self.putts_per_round <= 29:
 			print(f"Putting Average: {Fore.GREEN}"  + str(self.putts_per_round) + "{Style.RESET_ALL} Putts Per Round ({Fore.GREEN}" + str(self.putts_per_hole) + f"{Style.RESET_ALL} Putts Per Hole)")
-		else:
+		elif self.putts_per_round > 32:
 			print(f"Putting Average: {Fore.RED}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round ({Fore.RED}" + str(self.putts_per_hole) + f"{Style.RESET_ALL} Putts Per Hole)")
+		else:
+			print(f"Putting Average: {Fore.YELLOW}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round ({Fore.YELLOW}" + str(self.putts_per_hole) + f"{Style.RESET_ALL} Putts Per Hole)")
 
 	def write_to_csv(self):
 		
