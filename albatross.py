@@ -238,7 +238,7 @@ player = Player_Profile()
 	
 while True:
 	
-	option = input("\n(a)dd new round, (r)ound history, (s)tats, (c)ompare to the pros, (q)uit: ")
+	option = input("\n(A)dd New Round, (R)ound History, (S)tats, (H)ead-to-Head PGA Tour, (Q)uit: ")
 	
 	if option in ["a", "A"]:
 		while True:
@@ -266,9 +266,9 @@ while True:
 			new_round.print_stats_str()
 	elif option in ["s", "S"]:
 		player.print_stats_str()
-	elif option in ["c", "C"]:
+	elif option in ["h", "H"]:
 		while True:
-			print("\n(1) Tiger Woods 2000, (2) Tiger Woods 2006, (3) Jordan Spieth 2015, (4) Vijay Singh 2004, (5) Rory McIlroy 2014, (6) Brooks Koepka 2018 (7) Average (8) Best Of")
+			print("\n(1) Tiger Woods 2000, (2) Tiger Woods 2006, (3) Jordan Spieth 2015, (4) Vijay Singh 2004, (5) Rory McIlroy 2014, (6) Brooks Koepka 2018")
 			model_option = input("\nSelect a player/season: ")
 			if model_option == "1":
 				player.print_stats_str()
