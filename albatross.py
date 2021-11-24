@@ -2,6 +2,12 @@ import csv
 from os.path import isfile
 from colorama import Fore, Style
 
+PGA_FAIRWAYS_AVG = .58
+PGA_GIR_AVG = .65
+PGA_SCRAMBLING_AVG = .57
+PGA_PUTTS_AVG = 29
+PGA_SCORING_AVG = 71
+
 class Round:
 
 	def __init__(self, fairways_hit, fairways_possible, greens_in_regulation, up_and_downs, putts, score, round_number):
@@ -22,37 +28,37 @@ class Round:
 	
 		print("\nRound", self.round_number)
 		
-		if self.score <= 71:
+		if self.score <= PGA_SCORING_AVG:
 			print(f"Score: {Fore.GREEN}" + str(self.score) + f"{Style.RESET_ALL}")
-		elif self.score > 74:
+		elif self.score > (PGA_SCORING_AVG + 3):
 			print(f"Score: {Fore.RED}" + str(self.score) + f"{Style.RESET_ALL}")
 		else:
 			print(f"Score: {Fore.YELLOW}" + str(self.score) + f"{Style.RESET_ALL}")
 		
-		if round(self.fairways_hit / self.fairways_possible, 2) >= .58:
+		if round(self.fairways_hit / self.fairways_possible, 2) >= PGA_FAIRWAYS_AVG:
 					print(f"Driving Accuracy: {Fore.GREEN}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
-		elif round(self.fairways_hit / self.fairways_possible, 2) < .53:
+		elif round(self.fairways_hit / self.fairways_possible, 2) < (PGA_FAIRWAYS_AVG - 0.05):
 			print(f"Driving Accuracy: {Fore.RED}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
 		else:
 			print(f"Driving Accuracy: {Fore.YELLOW}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
 		
-		if round(self.greens_in_regulation / 18, 2) >= .65:
+		if round(self.greens_in_regulation / 18, 2) >= PGA_GIR_AVG:
 			print(f"Greens In Regulation: {Fore.GREEN}" + str(self.greens_in_regulation) + f"/18 {Style.RESET_ALL}({Fore.GREEN}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
-		elif round(self.greens_in_regulation / 18, 2) < .60:
+		elif round(self.greens_in_regulation / 18, 2) < (PGA_GIR_AVG - 0.05):
 			print(f"Greens In Regulation: {Fore.RED}" + str(self.greens_in_regulation) + f"/18 {Style.RESET_ALL}({Fore.RED}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
 		else:
 			print(f"Greens In Regulation: {Fore.YELLOW}" + str(self.greens_in_regulation) + f"/18 {Style.RESET_ALL}({Fore.YELLOW}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
 		
-		if round(self.up_and_downs / (18 - self.greens_in_regulation), 2) >= .57:
+		if round(self.up_and_downs / (18 - self.greens_in_regulation), 2) >= PGA_SCRAMBLING_AVG:
 			print(f"Scrambling: {Fore.GREEN}" + str(self.up_and_downs) + "/" + str(18 - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
-		elif round(self.up_and_downs / (18 - self.greens_in_regulation), 2) < .52:
+		elif round(self.up_and_downs / (18 - self.greens_in_regulation), 2) < (PGA_SCRAMBLING_AVG - 0.05):
 			print(f"Scrambling: {Fore.RED}" + str(self.up_and_downs) + "/" + str(18 - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
 		else:
 			print(f"Scrambling: {Fore.YELLOW}" + str(self.up_and_downs) + "/" + str(18 - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
 		
-		if self.putts <= 29:
+		if self.putts <= PGA_PUTTS_AVG:
 			print(f"Putts: {Fore.GREEN}" + str(self.putts) + f"{Style.RESET_ALL}")
-		elif self.putts > 32:
+		elif self.putts > (PGA_PUTTS_AVG + 3):
 			print(f"Putts: {Fore.RED}" + str(self.putts) + f"{Style.RESET_ALL}")	
 		else:
 			print(f"Putts: {Fore.YELLOW}" + str(self.putts) + f"{Style.RESET_ALL}")	
@@ -72,37 +78,37 @@ class Model_Profile:
 		
 		print("\n" + self.name)
 		
-		if self.scoring_average < 72:
+		if self.scoring_average < PGA_SCORING_AVG:
 			print(f"Scoring Average: {Fore.GREEN}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
-		elif self.scoring_average > 72:
+		elif self.scoring_average > (PGA_SCORING_AVG + 3):
 			print(f"Scoring Average: {Fore.RED}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
 		else:
 			print(f"Scoring Average: {Fore.YELLOW}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
 		
-		if self.fairways_hit_percentage >= .58:
+		if self.fairways_hit_percentage >= PGA_FAIRWAYS_AVG:
 					print(f"Fairways: {Fore.GREEN}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL}")
-		elif self.fairways_hit_percentage < .53:
+		elif self.fairways_hit_percentage < (PGA_FAIRWAYS_AVG - 0.05):
 					print(f"Fairways: {Fore.RED}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL}")
 		else:
 			print(f"Fairways: {Fore.YELLOW}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL}")
 			
-		if self.greens_in_regulation_percentage >= .65:
+		if self.greens_in_regulation_percentage >= PGA_GIR_AVG:
 			print(f"Greens In Regulation: {Fore.GREEN}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL}")
-		elif self.greens_in_regulation_percentage < .60:
+		elif self.greens_in_regulation_percentage < (PGA_GIR_AVG - 0.05):
 			print(f"Greens In Regulation: {Fore.RED}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL}")
 		else:
 			print(f"Greens In Regulation: {Fore.YELLOW}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL}")
 		
-		if self.scrambling_percentage >= .57:
+		if self.scrambling_percentage >= PGA_SCRAMBLING_AVG:
 			print(f"Scrambling: {Fore.GREEN}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL}")
-		elif self.scrambling_percentage < .52:
+		elif self.scrambling_percentage < (PGA_SCRAMBLING_AVG - 0.05):
 			print(f"Scrambling: {Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL}")
 		else:
 			print(f"Scrambling: {Fore.YELLOW}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL}")
 		
-		if self.putts_per_round <= 29:
+		if self.putts_per_round <= PGA_PUTTS_AVG:
 			print(f"Putting Average: {Fore.GREEN}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round")
-		elif self.putts_per_round > 32:
+		elif self.putts_per_round > (PGA_PUTTS_AVG + 3):
 			print(f"Putting Average: {Fore.RED}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round")
 		else:
 			print(f"Putting Average: {Fore.YELLOW}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round")
@@ -213,37 +219,37 @@ class Player_Profile:
 		print("\nYour Stats")
 		print("Rounds Played:", self.total_rounds)
 		
-		if self.scoring_average <= 71:
+		if self.scoring_average <= PGA_SCORING_AVG:
 			print(f"Scoring Average: {Fore.GREEN}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
-		elif self.scoring_average > 74:
+		elif self.scoring_average > (PGA_SCORING_AVG + 3):
 			print(f"Scoring Average: {Fore.RED}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
 		else:
 			print(f"Scoring Average: {Fore.YELLOW}" + str(self.scoring_average) + f"{Style.RESET_ALL}")
 		
-		if round(self.fairways_hit / self.fairways_possible, 2) >= .58:
+		if round(self.fairways_hit / self.fairways_possible, 2) >= PGA_FAIRWAYS_AVG:
 					print(f"Driving Accuracy: {Fore.GREEN}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
-		elif round(self.fairways_hit / self.fairways_possible, 2) < .53:
+		elif round(self.fairways_hit / self.fairways_possible, 2) < (PGA_FAIRWAYS_AVG - 0.05):
 			print(f"Driving Accuracy: {Fore.RED}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
 		else:
 			print(f"Driving Accuracy: {Fore.YELLOW}" + str(self.fairways_hit) + "/" + str(self.fairways_possible) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.fairways_hit_percentage) + f"%{Style.RESET_ALL})")
 			
-		if round(self.greens_in_regulation / (18 * self.total_rounds), 2) >= .65:
+		if round(self.greens_in_regulation / (18 * self.total_rounds), 2) >= PGA_GIR_AVG:
 			print(f"Greens In Regulation: {Fore.GREEN}" + str(self.greens_in_regulation) + "/" + str(18 *self.total_rounds) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
-		elif round(self.greens_in_regulation / (18 * self.total_rounds), 2) < .60:
+		elif round(self.greens_in_regulation / (18 * self.total_rounds), 2) < (PGA_GIR_AVG - 0.05):
 			print(f"Greens In Regulation: {Fore.RED}" + str(self.greens_in_regulation) + "/" + str(18 *self.total_rounds) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
 		else:
 			print(f"Greens In Regulation: {Fore.YELLOW}" + str(self.greens_in_regulation) + "/" + str(18 *self.total_rounds) + f"{Style.RESET_ALL} ({Fore.YELLOW}" + str(self.greens_in_regulation_percentage) + f"%{Style.RESET_ALL})")
 		
-		if round(self.up_and_downs / ((18 * self.total_rounds) - self.greens_in_regulation), 2) >= .57:
+		if round(self.up_and_downs / ((18 * self.total_rounds) - self.greens_in_regulation), 2) >= PGA_SCRAMBLING_AVG:
 			print(f"Scrambling: {Fore.GREEN}" + str(self.up_and_downs) + "/" + str((18 * self.total_rounds)- self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.GREEN}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
-		elif round(self.up_and_downs / ((18 * self.total_rounds) - self.greens_in_regulation), 2) < .52:
+		elif round(self.up_and_downs / ((18 * self.total_rounds) - self.greens_in_regulation), 2) < (PGA_SCRAMBLING_AVG - 0.05):
 			print(f"Scrambling: {Fore.RED}" + str(self.up_and_downs) + "/" + str((18 * self.total_rounds) - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
 		else:
 			print(f"Scrambling: {Fore.RED}" + str(self.up_and_downs) + "/" + str((18 * self.total_rounds) - self.greens_in_regulation) + f"{Style.RESET_ALL} ({Fore.RED}" + str(self.scrambling_percentage) + f"%{Style.RESET_ALL})")
 		
-		if self.putts_per_round <= 29:
+		if self.putts_per_round <= PGA_PUTTS_AVG:
 			print(f"Putting Average: {Fore.GREEN}"  + str(self.putts_per_round) + "{Style.RESET_ALL} Putts Per Round ({Fore.GREEN}" + str(self.putts_per_hole) + f"{Style.RESET_ALL} Putts Per Hole)")
-		elif self.putts_per_round > 32:
+		elif self.putts_per_round > (PGA_PUTTS_AVG + 3):
 			print(f"Putting Average: {Fore.RED}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round ({Fore.RED}" + str(self.putts_per_hole) + f"{Style.RESET_ALL} Putts Per Hole)")
 		else:
 			print(f"Putting Average: {Fore.YELLOW}"  + str(self.putts_per_round) + f"{Style.RESET_ALL} Putts Per Round ({Fore.YELLOW}" + str(self.putts_per_hole) + f"{Style.RESET_ALL} Putts Per Hole)")
