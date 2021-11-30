@@ -137,8 +137,8 @@ class Player_Profile:
 		self.total_rounds = 0
 		self.rounds = []
 		
-		if isfile("test.csv"):
-			with open("test.csv", "r+", newline="") as csv_file:
+		if isfile("albatross_data.csv"):
+			with open("albatross_data.csv", "r+", newline="") as csv_file:
 				csv_reader = csv.reader(csv_file, delimiter=",")
 				line_count = 0
 				for row in csv_reader:
