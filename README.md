@@ -1,6 +1,14 @@
 # Albatross
 Golf Stat Analyzer
 
+---
+
+Copyright 2022, Akshay R. Kapadia<br>
+License: GPL-3.0<br>
+Version: 0.1.0<br>
+Status: Development<br>
+
+---
 
 ## Features
 
@@ -26,6 +34,7 @@ Golf Stat Analyzer
  - Rory McIlroy 2014
  - Brooks Koepka 2018
 
+---
 
 ## Stat Color Meanings
 
@@ -33,6 +42,7 @@ Golf Stat Analyzer
 - Yellow: Close to PGA Tour average or player in head-to-head
 - Red: Below PGA Tour average or worse than player in head-to-head
 
+---
 
 ## Command Screenshots
 
