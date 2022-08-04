@@ -37,10 +37,10 @@ Golf Stat Analyzer
 ## Command Screenshots
 
 **(A)dd New Round**
-![Screenshot 1](./imgs/screenshot_1.png)
+![Screenshot 1](./images/screenshot_1.png)
 
 **(R)ound History & (S)tats**
-![Screenshot 1](./imgs/screenshot_2.png)
+![Screenshot 1](./images/screenshot_2.png)
 
 **(H)ead-to-Head PGA Tour**
-![Screenshot 1](./imgs/screenshot_3.png)
+![Screenshot 1](./images/screenshot_3.png)
