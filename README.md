@@ -2,6 +2,31 @@
 Golf Stat Analyzer
 
 
+## Features
+
+- Track round by round stats
+ - Fairways Hit
+ - Greens in Regulation
+ - Up & Downs
+ - Putts
+ - score
+- Track overall stats
+ - Rounds Played
+ - Scoring Average
+ - Driving Accuracy
+ - Greens in Regulation
+ - Scrambling
+ - Putts per Round
+ - Putts per Hole
+- Compare your stats to the PGA Tour average or some of the best players in the world
+ - Tiger Woods 2000
+ - Tiger Woods 2006
+ - Jordan Spieth 2015
+ - Vijay Singh 2004
+ - Rory McIlroy 2014
+ - Brooks Koepka 2018
+
+
 ## Stat Color Meanings
 
 - Green: above PGA Tour average or better than player in head-to-head
