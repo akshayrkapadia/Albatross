@@ -12,6 +12,7 @@ Status: Development<br>
 
 ## Features
 
+- Color coded stats based on PGA Tour average
 - Track round by round stats
     - Fairways Hit
     - Greens in Regulation
