@@ -19,20 +19,20 @@ Status: Development<br>
     - Putts
     - Score
 - Track overall stats
- - Rounds Played
- - Scoring Average
- - Driving Accuracy
- - Greens in Regulation
- - Scrambling
- - Putts per Round
- - Putts per Hole
+    - Rounds Played
+    - Scoring Average
+    - Driving Accuracy
+    - Greens in Regulation
+    - Scrambling
+    - Putts per Round
+    - Putts per Hole
 - Compare your stats to the PGA Tour average or some of the best players in the world
- - Tiger Woods 2000
- - Tiger Woods 2006
- - Jordan Spieth 2015
- - Vijay Singh 2004
- - Rory McIlroy 2014
- - Brooks Koepka 2018
+    - Tiger Woods 2000
+    - Tiger Woods 2006
+    - Jordan Spieth 2015
+    - Vijay Singh 2004
+    - Rory McIlroy 2014
+    - Brooks Koepka 2018
 
 ---
 
