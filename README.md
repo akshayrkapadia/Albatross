@@ -13,11 +13,11 @@ Status: Development<br>
 ## Features
 
 - Track round by round stats
- - Fairways Hit
- - Greens in Regulation
- - Up & Downs
- - Putts
- - score
+    - Fairways Hit
+    - Greens in Regulation
+    - Up & Downs
+    - Putts
+    - Score
 - Track overall stats
  - Rounds Played
  - Scoring Average
